@@ -64,7 +64,13 @@ public class Account {
 		 setInterest (interestEarn);
 		 
 	 }
-	
+	 
+	 public void deposit(double amount)
+	 {
+		 double bal = getBal();
+		 bal+=amount;
+		 setBal(bal);
+	 }
 	
 	
 	public static void main(String[] args) 
