@@ -20,6 +20,11 @@ public class Transaction {
 		
 	}
 	
+	public String getAcc ()
+	{
+		return accNum;
+	}
+	
 	public double getDeposit ()
 	{
 		return credit;
@@ -63,15 +68,24 @@ public class Transaction {
 		acc.withdraw(100.00);
 		trans.performWithdrawal("234", 100.00, tranData);
 		
-		System.out.println("Current bal : "+acc.getBal());
+		Account acc2 = new Account();
+		acc2.setAccountInfo("345", "Mazwan", 1000.00, 0.00, 0.00);
+		trans.performDeposit("345", 1000.0, tranData);
+		
+		
+		System.out.println("Current bal : "+acc2.getBal());
 		
 		System.out.println("Debit\t\tCredit");
 		for (int i=0; i<tranData.size(); i++)
 		{
-			System.out.print(tranData.get(i).getWithdrawal());
-			System.out.print("\t\t");
-			System.out.print(tranData.get(i).getDeposit());
-			System.out.println();
+			if (tranData.get(i).getAcc()=="345")
+			{
+				System.out.print(tranData.get(i).getWithdrawal());
+				System.out.print("\t\t");
+				System.out.print(tranData.get(i).getDeposit());
+				System.out.println();
+			}
+			
 		}
 
 	}
